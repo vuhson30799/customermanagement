@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Find Customers</title>
+</head>
+<body>
+<div id="feedback"></div>
+<form id="form">
+    <fieldset>
+        <legend>
+            Customer information
+        </legend>
+        <table>
+            <tr>
+                <th>Customer(Last name):</th>
+                <th><input type="text" id="lastName"/> </th>
+            </tr>
+        </table>
+        <input type="submit" th:value="'find'">
+    </fieldset>
+</form>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script type="text/javascript" th:src="@{/static/main.js}"></script>
+</body>
+</html>
