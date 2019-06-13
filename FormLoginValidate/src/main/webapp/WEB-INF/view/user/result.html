@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+</head>
+<body>
+<h1>User:</h1>
+<h2 th:text="#{user.success}"></h2>
+<th:block th:object="${user}">
+    <fieldset>
+        <legend>
+            User information:
+        </legend>
+        <table>
+            <thead>
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+                <td></td>
+                <td>Age</td>
+                <td>Phone number</td>
+                <td>Email</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>First name</td>
+                <td th:text="*{firstName}"></td>
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td th:text="*{lastName}"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td th:text="*{age}"></td>
+
+            </tr>
+            <tr>
+                <td>Phone number</td>
+                <td th:text="*{phoneNumber}"></td>
+
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td th:text="*{email}"></td>
+            </tr>
+        </table>
+    </fieldset>
+</th:block>
+<p><a th:href="@{/user}" th:text="'Back to enter new user'"></a> </p>
+</body>
+</html>
