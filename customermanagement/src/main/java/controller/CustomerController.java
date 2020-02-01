@@ -1,8 +1,6 @@
 package controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import model.Customer;
-import model.Result;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,8 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 import service.CustomerService;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class CustomerController {
@@ -104,7 +100,7 @@ public class CustomerController {
     public ModelAndView findCustomer(){
         return new ModelAndView("/customer/find");
     }
-    @RequestMapping(value = "/customers/find",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/customers/find",method = RequestMethod.POST)
     public ResponseEntity<JSONObject> findCustomerByName(@RequestBody String lastName,Pageable pageable,Errors errors){
         JSONObject object = new JSONObject();
         if (errors.hasErrors()) {
@@ -123,7 +119,6 @@ public class CustomerController {
                     object.put("customers",customers.getContent());
                     object.put("sizeCustomers",customers.getNumberOfElements());
                 }
-
 
             }
         }

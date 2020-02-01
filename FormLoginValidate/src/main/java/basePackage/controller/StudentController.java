@@ -39,12 +39,12 @@ public class StudentController {
     }
 
     @PostMapping("/create-student")
-    public ModelAndView addStudent(@Validated @ModelAttribute(name = "student")Student student,Pageable pageable,BindingResult bindingResult){
+    public ModelAndView addStudent(@Validated @ModelAttribute(name = "student")Student student,BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
         if (!bindingResult.hasFieldErrors()){
             studentService.save(student);
             modelAndView.setViewName("home");
-            modelAndView.addObject("students",studentService.findAll(pageable));
+
             return modelAndView;
         }else {
             modelAndView.setViewName("student/create");
